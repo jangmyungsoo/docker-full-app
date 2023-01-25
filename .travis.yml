@@ -21,3 +21,8 @@ after_success:
   - docker push powerjms0324/docker-frontend
   - docker push powerjms0324/docker-backend
   - docker push powerjms0324/docker-nginx
+
+notifications:
+  email:
+    recipients:
+      - msjang@bellock.co.kr
