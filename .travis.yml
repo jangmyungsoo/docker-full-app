@@ -22,7 +22,23 @@ after_success:
   - docker push powerjms0324/docker-backend
   - docker push powerjms0324/docker-nginx
 
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-fullstack-app"
+  env: "Dockerfullstackapp-env"
+  bucket_name: elasticbeanstalk-ap-northeast-2-270836079056
+  bucket_path: "docker-fullstack-app"
+  on:
+    branch: master
+  
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+
+
 notifications:
   email:
     recipients:
       - msjang@bellock.co.kr
+
+
